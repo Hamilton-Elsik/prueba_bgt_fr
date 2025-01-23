@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.toast-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 9999; /* Asegúrate de que el z-index sea suficientemente alto */
+}
+.toast-success {
+  background-color: #7605ff;
+}
+.toast-error {
+  background-color: #f700ff;
+}

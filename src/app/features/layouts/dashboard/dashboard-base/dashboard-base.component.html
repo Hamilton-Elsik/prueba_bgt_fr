@@ -1,0 +1,17 @@
+<mat-drawer-container fullscreen autosize>
+  <mat-drawer #sidenav mode="side">
+    <app-dashboard-sidemenu
+      [imageCollapsed]="imageCollapsed"
+      [imageExpanded]="imageExpanded"
+    />
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <app-dashboard-toolbar>
+      <div extraToolbar>
+        <ng-content select="[extraToolbarComponent]"></ng-content>
+      </div>
+    </app-dashboard-toolbar>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

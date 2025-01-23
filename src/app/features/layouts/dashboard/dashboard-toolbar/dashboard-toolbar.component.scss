@@ -1,0 +1,86 @@
+// @use '~@angular/flex-layout/mq' as *;
+
+.hide-menu {
+  display: none;
+}
+
+.top-toolbar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .title-project {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .exit {
+    margin: 10px 20px;
+    text-align: center;
+  }
+
+  .moon {
+    margin: 5px;
+  }
+
+  .icons-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+  line-height: normal;
+
+  label:first-child {
+    font-size: 20px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
+.exit-app {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.toolbar-components {
+  display: flex;
+  align-items: center;
+}
+
+.menu-components {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 1rem;
+}
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+mat-menu .profile-select {
+  display: none;
+}

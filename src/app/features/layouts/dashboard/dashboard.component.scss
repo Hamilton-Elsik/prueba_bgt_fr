@@ -1,0 +1,19 @@
+.user-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 43px;
+  line-height: normal;
+  label:first-child {
+    font-size: 40px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
+.container {
+  padding: 2%;
+  width: 96%;
+}

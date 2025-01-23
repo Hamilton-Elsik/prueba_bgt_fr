@@ -1,0 +1,31 @@
+.title {
+  width: 320px;
+  text-align: center;
+  color: #673ab7;
+  font-family: monospace;
+  font-size: xx-large;
+  font-weight: 900;
+  margin-top: 18px;
+}
+.conten {
+  max-height: 500px;
+  min-height: 400px;
+  width: 320px;
+}
+
+.dataConten {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.buttonContent {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  bottom: 10px;
+}
+
+.text-danger {
+  color: red;
+}

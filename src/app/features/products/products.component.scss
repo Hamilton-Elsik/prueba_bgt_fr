@@ -1,0 +1,42 @@
+.conten {
+  max-width: 100%;
+}
+.header {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+.title {
+  color: #673ab7;
+  font-size: -webkit-xxx-large;
+  font-weight: 900;
+  font-family: monospace;
+}
+.add {
+  text-align: end;
+  margin-top: 10px;
+}
+
+.buttonAdd {
+  border: none;
+  background-color: #673ab7;
+  border-radius: 10px;
+  color: white;
+  font-weight: 900;
+  height: 65px;
+  width: 66px;
+}
+.tableConten {
+  background-color: #fff0 !important;
+}
+.table {
+  overflow-x: scroll;
+}
+
+.menu-icon {
+  font-size: 52px;
+  width: 50px;
+  height: 50px;
+}

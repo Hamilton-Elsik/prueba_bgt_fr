@@ -1,0 +1,88 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-atom"
+>
+  <p style="font-size: 20px; color: white">Cargando...</p>
+</ngx-spinner>
+<div class="conten">
+  <div class="title">Agregar Producto</div>
+  <div class="dataConten">
+    <form [formGroup]="addProduct" (ngSubmit)="saveProduct()">
+      <mat-form-field>
+        <mat-label>Nombre Del Producto</mat-label>
+        <input autoComplete="off" matInput formControlName="nameProduct" />
+        <span
+          class="text-danger ml-2"
+          style="font-size: 11px"
+          *ngIf="isValidField('nameProduct')"
+        >
+          El nombre<strong> es requerido</strong>
+        </span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Categoría</mat-label>
+        <input autoComplete="off" matInput formControlName="category" />
+        <span
+          class="text-danger ml-2"
+          style="font-size: 11px"
+          *ngIf="isValidField('category')"
+        >
+          La categoría <strong>es requerida</strong>
+        </span>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input
+          autoComplete="off"
+          matInput
+          formControlName="price"
+          type="number"
+        />
+        <span
+          class="text-danger ml-2"
+          style="font-size: 11px"
+          *ngIf="isValidField('price')"
+        >
+          El precio debe ser<strong> mayor a cero</strong>
+        </span>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Cantidad en stock</mat-label>
+        <input
+          autoComplete="off"
+          matInput
+          formControlName="quantityStock"
+          type="number"
+        />
+        <span
+          class="text-danger ml-2"
+          style="font-size: 11px"
+          *ngIf="isValidField('quantityStock')"
+        >
+          La cantidad debe ser <strong>entero y mayor a cero</strong>
+        </span>
+      </mat-form-field>
+      <div class="buttonContent">
+        <button
+          mat-stroked-button
+          color="accent"
+          type="button"
+          (click)="close()"
+        >
+          Cancelar
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="addProduct.invalid"
+          color="primary"
+          type="submit"
+        >
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+:host {
+  width: 100%;
+}
+
+.menu-icon {
+  $menu-icon-size: 1.75rem;
+  font-size: $menu-icon-size;
+  width: $menu-icon-size;
+  height: $menu-icon-size;
+  margin-right: 1.5rem;
+}
+
+.menu-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  height: auto;
+  justify-content: left;
+
+  &.collapsed-mode {
+    justify-content: center;
+  }
+}
+
+.collapsed-mode {
+  text-align: center;
+  min-width: unset;
+
+  .menu-icon {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,67 @@
+<ng-container
+  *ngTemplateOutlet="_config.hasOptions ? withOptions : withoutOptions"
+/>
+
+<ng-template #withOptions>
+  <button
+    *ngIf="!_config.isSelected"
+    mat-button
+    class="menu-btn"
+    [class.collapsed-mode]="collapsed"
+    [matMenuTriggerFor]="menu"
+    [matTooltip]="_config.text"
+    matTooltipPosition="left"
+  >
+    <mat-icon class="menu-icon" fontSet="material-icons-outlined">{{
+      _config.icon
+    }}</mat-icon>
+    <span *ngIf="!collapsed">{{ _config.text }}</span>
+  </button>
+
+  <button
+    *ngIf="_config.isSelected"
+    mat-raised-button
+    class="menu-btn"
+    [class.collapsed-mode]="collapsed"
+    color="primary"
+    [matMenuTriggerFor]="menu"
+    [matTooltip]="_config.text"
+    matTooltipPosition="left"
+  >
+    <mat-icon class="menu-icon" fontSet="material-icons-outlined">{{
+      _config.icon
+    }}</mat-icon>
+    <span *ngIf="!collapsed">{{ _config.text }}</span>
+  </button>
+
+  <mat-menu #menu="matMenu" class="sub-menu">
+    <ng-container *ngFor="let item of _config.options">
+      <button
+        mat-menu-item
+        [class]="item.isSelected ? 'text-primary' : ''"
+        (click)="optionClicked(item)"
+      >
+        {{ item.text }}
+      </button>
+    </ng-container>
+  </mat-menu>
+</ng-template>
+
+<ng-template #withoutOptions>
+  <button
+    mat-button
+    class="menu-btn"
+    [class]="collapsed ? 'collapsed-mode' : ''"
+    [class.mat-raised-button]="_config.isSelected"
+    [color]="_config.isSelected ? 'primary' : ''"
+    [matTooltip]="_config.text"
+    matTooltipPosition="left"
+    (click)="optionClicked(_config)"
+    [disabled]="_config.isDisabled"
+  >
+    <mat-icon class="menu-icon" fontSet="material-icons-outlined">{{
+      _config.icon
+    }}</mat-icon>
+    <span *ngIf="!collapsed">{{ _config.text }}</span>
+  </button>
+</ng-template>

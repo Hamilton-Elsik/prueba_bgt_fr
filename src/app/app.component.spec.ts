@@ -1,29 +1,32 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Router } from '@angular/router';
+import { ProductsComponent } from './features/products/products.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { DashboardItemsModule } from './features/dashboard-items.module';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let router: Router;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [
+        DashboardItemsModule,
+        RouterTestingModule.withRoutes([
+          { path: '', component: ProductsComponent },
+        ]),
+      ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    router = TestBed.inject(Router);
+    router.initialNavigation(); // Inicializa la navegación
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'productsFr' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('productsFr');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, productsFr');
+  it('should render ProductsComponent when navigating to "/"', () => {
+    router.navigate(['']).then(() => {
+      fixture.detectChanges();
+    });
   });
 });

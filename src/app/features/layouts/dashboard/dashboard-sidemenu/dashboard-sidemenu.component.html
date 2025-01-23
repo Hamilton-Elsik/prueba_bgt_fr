@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <div class="header-menu">
+    <img *ngIf="hideMenu && imageCollapsed" [src]="imageCollapsed" alt="logo" />
+    <img *ngIf="!hideMenu && imageExpanded" [src]="imageExpanded" alt="logo" />
+  </div>
+</mat-toolbar>
+
+<div class="menu">
+  <ng-container *ngFor="let menuItem of menuItems">
+    <app-sidemenu-item [config]="menuItem" [collapsed]="hideMenu" />
+  </ng-container>
+</div>

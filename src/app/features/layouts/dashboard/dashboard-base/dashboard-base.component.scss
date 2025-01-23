@@ -1,0 +1,13 @@
+.page-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
+  padding: 1rem 3rem;
+  gap: 1rem;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+}

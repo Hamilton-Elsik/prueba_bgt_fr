@@ -1,0 +1,38 @@
+<mat-toolbar class="top-toolbar" color="primary">
+  <ng-container *ngIf="configuration.showMenuIcon">
+    <button (click)="showMenu()" mat-icon-button>
+      <mat-icon *ngIf="hideMenu">menu</mat-icon>
+      <mat-icon *ngIf="!hideMenu">close</mat-icon>
+    </button>
+  </ng-container>
+
+  <div class="title-project">
+    <span>{{ configuration.title }}</span>
+  </div>
+
+  <div class="icons-info">
+    <div class="user-icon">
+      <button mat-button [matMenuTriggerFor]="profile" class="profile-button">
+        <mat-icon fontSet="material-icons-outlined">person</mat-icon>
+      </button>
+
+      <mat-menu #profile="matMenu" class="profile-select">
+        <div class="menu-components">
+          <ng-container *ngTemplateOutlet="toolbarComponents"></ng-container>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+
+<ng-template #toolbarComponents let-menu="menu">
+  <div class="exit" *ngIf="configuration.showExitButton">
+    <button mat-icon-button extended routerLink="/" (click)="logoutClicked()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+
+  <ng-container>
+    <ng-content select="[extraToolbar]"></ng-content>
+  </ng-container>
+</ng-template>
